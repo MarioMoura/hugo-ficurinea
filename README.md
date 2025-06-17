@@ -2,6 +2,8 @@
 
 # Ficurinia
 
+Note: forked from [here](https://gitlab.com/gabmus/hugo-ficurinia)
+
 A prickly blog theme for Hugo
 
 ![](images/tn.png)
