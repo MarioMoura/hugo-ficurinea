@@ -9,6 +9,7 @@ $dark_accent:      {{ $colors.dark.accent     | default "#db5793" }};
 $dark_sidebar_bg:  {{ $colors.dark.sidebar.bg | default "#34363b" }};
 $dark_sidebar_fg:  {{ $colors.dark.sidebar.fg | default "white"   }};
 $dark_link_color:  {{ $colors.dark.link_color | default "#3399ff" }};
+$dark_code_color:  {{ $colors.dark.code_color | default "#e6e6e6" }};
 
 $light_bg:         {{ $colors.light.bg         | default "#f5f5f5" }};
 $light_hl_bg:      {{ $colors.light.hl_bg      | default "#e6e6e6" }};
@@ -19,7 +20,7 @@ $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
 $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
-
+$light_code_color: {{ $colors.light.code_color | default "#e6e6e6" }};
 :root {
     --dark_bg:          #{$dark_bg};
     --dark_hl_bg:       #{$dark_hl_bg};
@@ -30,6 +31,7 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
     --dark_sidebar_bg:  #{$dark_sidebar_bg};
     --dark_sidebar_fg:  #{$dark_sidebar_fg};
     --dark_link_color:  #{$dark_link_color};
+    --dark_code_color:  #{$dark_link_color};
 
     --light_bg:         #{$light_bg};
     --light_hl_bg:      #{$light_hl_bg};
@@ -40,6 +42,7 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
     --light_sidebar_bg: #{$light_sidebar_bg};
     --light_sidebar_fg: #{$light_sidebar_fg};
     --light_link_color: #{$light_link_color};
+    --light_code_color: #{$light_link_color};
 
     {{ if eq .Site.Data.colors.default "light" }}
         --default_bg:         #{$light_bg};
@@ -51,6 +54,7 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
         --default_link_color: #{$light_link_color};
+        --default_code_color: #{$light_code_color};
     {{ else }}
         --default_bg:         #{$dark_bg};
         --default_hl_bg:      #{$dark_hl_bg};
@@ -61,6 +65,7 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
         --default_link_color: #{$dark_link_color};
+        --default_code_color: #{$dark_code_color};
     {{ end }}
 }
 
@@ -75,6 +80,8 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
         --default_accent:     #{$dark_accent};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
+        --default_link_color: #{$dark_link_color};
+        --default_code_color: #{$dark_code_color};
     }
 }
 @media (prefers-color-scheme: light) {
@@ -87,6 +94,8 @@ $light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
         --default_accent:     #{$light_accent};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
+        --default_link_color: #{$light_link_color};
+        --default_code_color: #{$light_code_color};
     }
 }
 {{ end }}
@@ -225,10 +234,15 @@ article, .articlePreview {
 
     pre, code {
         overflow: auto;
+        background: var(--default_code_color);
+        border: 0px;
+        padding: 5px;
     }
     pre {
         padding: $margin;
-        border: 1px solid var(--default_stroke);
+        border: 0px solid var(--default_stroke);
+        border-top: 4px solid var(--default_accent);
+        background: var(--default_code_color);
         border-radius: 3px;
     }
 }
@@ -615,7 +629,7 @@ ul.list {
         align-self: flex-start;
         width: 50px;
         max-height: 50px;
-        border-radius: 5px;
+        border-radius: 50%;
     }
 }
 

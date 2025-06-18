@@ -11,6 +11,7 @@ dark:
     bg: '#34363b'  # sidebar background
     fg: 'white'  # sidebar font color
   link_color: '#3399ff'
+  code_color: '#e6e6e6'
 light:
   bg: '#ffffcc'
   hl_bg: '#e6e6e6'
@@ -22,3 +23,4 @@ light:
     bg: '#e6e6e6'
     fg: '#121211'
   link_color: '#3399ff'
+  code_color: '#e6e6e6'
