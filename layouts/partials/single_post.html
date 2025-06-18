@@ -3,7 +3,7 @@
     {{ if .Params.showTitle | default true }}
         <h1>{{ .Title }}</h1>
     {{ end }}
-    {{ if (.Params.showDate | default true) }}
+    {{ if and (.Params.showDate | default true) (not .Date.IsZero) }}
         <p class="date">
             <span title='{{ i18n "date" }}'>󰃭 </span>
             {{- partial "date.html" .Date -}}
