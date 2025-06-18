@@ -8,6 +8,7 @@ $dark_stroke:      {{ $colors.dark.stroke     | default "#4f4f4f" }};
 $dark_accent:      {{ $colors.dark.accent     | default "#db5793" }};
 $dark_sidebar_bg:  {{ $colors.dark.sidebar.bg | default "#34363b" }};
 $dark_sidebar_fg:  {{ $colors.dark.sidebar.fg | default "white"   }};
+$dark_link_color:  {{ $colors.dark.link_color | default "#3399ff" }};
 
 $light_bg:         {{ $colors.light.bg         | default "#f5f5f5" }};
 $light_hl_bg:      {{ $colors.light.hl_bg      | default "#e6e6e6" }};
@@ -17,6 +18,7 @@ $light_stroke:     {{ $colors.light.stroke     | default "#575754" }};
 $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
+$light_link_color: {{ $colors.light.link_color | default "#3399ff" }};
 
 :root {
     --dark_bg:          #{$dark_bg};
@@ -27,6 +29,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --dark_accent:      #{$dark_accent};
     --dark_sidebar_bg:  #{$dark_sidebar_bg};
     --dark_sidebar_fg:  #{$dark_sidebar_fg};
+    --dark_link_color:  #{$dark_link_color};
 
     --light_bg:         #{$light_bg};
     --light_hl_bg:      #{$light_hl_bg};
@@ -36,6 +39,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
     --light_accent:     #{$light_accent};
     --light_sidebar_bg: #{$light_sidebar_bg};
     --light_sidebar_fg: #{$light_sidebar_fg};
+    --light_link_color: #{$light_link_color};
 
     {{ if eq .Site.Data.colors.default "light" }}
         --default_bg:         #{$light_bg};
@@ -46,6 +50,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent:     #{$light_accent};
         --default_sidebar_bg: #{$light_sidebar_bg};
         --default_sidebar_fg: #{$light_sidebar_fg};
+        --default_link_color: #{$light_link_color};
     {{ else }}
         --default_bg:         #{$dark_bg};
         --default_hl_bg:      #{$dark_hl_bg};
@@ -55,6 +60,7 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_accent:     #{$dark_accent};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
+        --default_link_color: #{$dark_link_color};
     {{ end }}
 }
 
@@ -124,7 +130,7 @@ body {
 }
 
 @mixin linkLike {
-    color: var(--default_fg);
+    color: var(--default_link_color);
     text-decoration: none;
     background-color: transparent;
     border-radius: 0;
