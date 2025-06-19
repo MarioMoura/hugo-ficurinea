@@ -1,8 +1,9 @@
 ![logo](static/logo.svg)
 
-# Ficurinia
 
-Note: forked from [here](https://gitlab.com/gabmus/hugo-ficurinia)
+# **Note: forked from [here](https://gitlab.com/gabmus/hugo-ficurinia)**
+
+# Ficurinia
 
 A prickly blog theme for Hugo
 
