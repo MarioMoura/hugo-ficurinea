@@ -1,7 +1,7 @@
 {{- partial "inject/content-before.html" . -}}
 <article class="card single">
 	{{ if and (.Params.showTitle | default true) (.Title) }}
-        <h1>{{ .Title }}</h1>
+        <h1 class="article_title" >{{ .Title }}</h1>
     {{ end }}
     {{ if and (.Params.showDate | default true) (not .Date.IsZero) }}
         <p class="date">
