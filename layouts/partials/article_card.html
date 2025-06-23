@@ -14,7 +14,7 @@
                 | <!-- Pipe character as visual separator between date and tags-->
                 <span title='{{ i18n "tags" }}'> </span>
                 {{ range sort .Params.tags }}
-                    <a href="/tags/{{ . | urlize }}">#{{ . }}</a>
+                    <a class="tags" href="/tags/{{ . | urlize }}">#{{ . }}</a>
                 {{ end }}
             {{ end }}
         </p>
@@ -38,7 +38,7 @@
                         {{.Summary }}
                     {{ end }}
                 </p>
-                <p><a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a></p>
+                <p><a class="continue-reading" href="{{ .Permalink }}">{{ i18n "continueReading" }} </a></p>
             </div>
         {{ end }}
     </div>
