@@ -139,6 +139,7 @@ body {
 }
 
 @mixin linkLike {
+    
     color: var(--default_link_color);
     text-decoration: none;
     background-color: transparent;
@@ -708,9 +709,6 @@ header {
                     a {
                         padding: 2px $margin;
                         color: var(--default_accent);
-                        &:hover {
-                            text-decoration: underline;
-                        }
                     }
                 {{ end }}
             }
@@ -752,7 +750,7 @@ input, textarea, textarea.cactus-editor-textarea {
     {{ if (eq (site.Params.inputStyle | default "standard") "buttons") }}
         @include buttonLike;
     {{ else }}
-        border-radius: 0 !important;
+      border-radius: 5px;
     {{ end }}
     box-sizing: border-box;
     font-family: $symbols_font, $main_font;
@@ -1281,3 +1279,24 @@ input {
     transition: .15s border ease-in-out;
 }
 
+.hover-underline {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #000000, var(--default_accent));
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
