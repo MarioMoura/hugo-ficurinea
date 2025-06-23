@@ -13,7 +13,9 @@
             (updated: {{- partial "date.html" .Lastmod -}})
             {{ end }}
 			</span>
+			{{ if not .Params.Dotfile }}
 			<span class="date_right">{{ .WordCount }} words, {{ .ReadingTime }} minutes </span>
+			{{ end }}
 			<span class="date_center"></span>
         </div>
     {{ end }}
