@@ -1,9 +1,9 @@
 <article class="card postlistitem">
     <div>
-        <h2>
+        <h2 class="card_title" >
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h2>
-        <p class="date">
+        <p style="height:30px;" class="date">
             <span title='{{ i18n "date" }}'>󰃭 </span>
             {{- partial "date.html" .Date -}}
             {{- if ne (.Date | time.Format "Jan 02, 2006 3:04 PM Z07:00") (.Lastmod.Format "Jan 02, 2006 3:04 PM Z07:00")

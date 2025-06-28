@@ -505,7 +505,7 @@ h6 {font-size: 0.7 * $base_font_size * $title_font_mult;}
 
 .postlist {
     display: grid;
-    grid-gap: $margin;
+    grid-gap: 20px;
     margin-bottom: $margin;
     grid-template-columns: 1fr;
     &.gridView {
@@ -1340,3 +1340,6 @@ input {
     transition: .15s border ease-in-out;
 }
 
+.card_title {
+  height: 60px;
+}
