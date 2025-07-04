@@ -7,7 +7,7 @@ tags:
   - tag3
 image:
 comments: true
-[params]
+params:
     dotfile: false
 ---
 
