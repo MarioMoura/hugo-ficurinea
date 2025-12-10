@@ -1,0 +1,66 @@
+{{- /* Convert a year number to Roman numerals */ -}}
+{{- $year := . -}}
+{{- $roman := "" -}}
+{{- $remaining := $year -}}
+
+{{- /* Thousands (M = 1000) */ -}}
+{{- $thousands := div $remaining 1000 -}}
+{{- range seq $thousands -}}
+    {{- $roman = printf "%sM" $roman -}}
+{{- end -}}
+{{- $remaining = mod $remaining 1000 -}}
+
+{{- /* Hundreds */ -}}
+{{- $hundreds := div $remaining 100 -}}
+{{- if eq $hundreds 9 -}}
+    {{- $roman = printf "%sCM" $roman -}}
+{{- else if ge $hundreds 5 -}}
+    {{- $roman = printf "%sD" $roman -}}
+    {{- range seq (sub $hundreds 5) -}}
+        {{- $roman = printf "%sC" $roman -}}
+    {{- end -}}
+{{- else if eq $hundreds 4 -}}
+    {{- $roman = printf "%sCD" $roman -}}
+{{- else -}}
+    {{- range seq $hundreds -}}
+        {{- $roman = printf "%sC" $roman -}}
+    {{- end -}}
+{{- end -}}
+{{- $remaining = mod $remaining 100 -}}
+
+{{- /* Tens */ -}}
+{{- $tens := div $remaining 10 -}}
+{{- if eq $tens 9 -}}
+    {{- $roman = printf "%sXC" $roman -}}
+{{- else if ge $tens 5 -}}
+    {{- $roman = printf "%sL" $roman -}}
+    {{- range seq (sub $tens 5) -}}
+        {{- $roman = printf "%sX" $roman -}}
+    {{- end -}}
+{{- else if eq $tens 4 -}}
+    {{- $roman = printf "%sXL" $roman -}}
+{{- else -}}
+    {{- range seq $tens -}}
+        {{- $roman = printf "%sX" $roman -}}
+    {{- end -}}
+{{- end -}}
+{{- $remaining = mod $remaining 10 -}}
+
+{{- /* Ones */ -}}
+{{- $ones := $remaining -}}
+{{- if eq $ones 9 -}}
+    {{- $roman = printf "%sIX" $roman -}}
+{{- else if ge $ones 5 -}}
+    {{- $roman = printf "%sV" $roman -}}
+    {{- range seq (sub $ones 5) -}}
+        {{- $roman = printf "%sI" $roman -}}
+    {{- end -}}
+{{- else if eq $ones 4 -}}
+    {{- $roman = printf "%sIV" $roman -}}
+{{- else -}}
+    {{- range seq $ones -}}
+        {{- $roman = printf "%sI" $roman -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $roman -}}

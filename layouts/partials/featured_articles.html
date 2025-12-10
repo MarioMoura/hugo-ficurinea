@@ -24,7 +24,7 @@
                     {{- partial "date.html" .Date -}}
                     {{- if ne (.Date | time.Format "Jan 02, 2006 3:04 PM Z07:00") (.Lastmod.Format "Jan 02, 2006 3:04 PM Z07:00")
                     -}}
-                    (updated: {{- partial "date.html" .Lastmod -}})
+                    &nbsp;(updated:&nbsp;{{- partial "date.html" .Lastmod -}})
                     {{ end }}                    {{ if and (site.Params.tagsInArticlePreview | default true) .Params.tags }}
                     <br />
                     <span title='{{ i18n "tags" }}'> </span>

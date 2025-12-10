@@ -1,5 +1,4 @@
-{{ if site.Params.dateFormat }}
-    {{ .Format site.Params.dateFormat }}
-{{ else }}
-    {{ .Format "2006-01-02" }}
-{{ end }}
+{{- $month := .Format "January" -}}
+{{- $day := .Day -}}
+{{- $roman := partial "roman_year.html" .Year -}}
+{{- printf "%s %d, A.D. %s" $month $day $roman -}}
